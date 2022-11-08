@@ -1,0 +1,1 @@
+import{aa as r,ad as _}from"./index.e60d56ff.js";const a=(t,e)=>{const o=t.__vccOpts||t;for(const[c,n]of e)o[c]=n;return o},s={};function l(t,e){return _(),r("div",null," Not Found ")}const d=a(s,[["render",l]]);export{d as default};
