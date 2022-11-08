@@ -1,50 +1,43 @@
 <script setup lang="ts">
-const name = $ref('')
-
 const router = useRouter()
-const go = () => {
-  if (name)
-    router.push(`/hi/${encodeURIComponent(name)}`)
+function add() {
+  router.push({ name: 'add' })
 }
+
+const events = computed(() => {
+  return loveEvents.value.map(item => ({
+    event: item.event,
+    date: new Date(`${item.date} ${item.time}`).getTime() - Date.now(),
+  }))
+})
 </script>
 
 <template>
-  <div>
+  <div p="x-4 y-10">
     <div i-carbon-campsite text-4xl inline-block />
     <p>
       <a rel="noreferrer" href="https://github.com/antfu/vitesse-lite" target="_blank">
-        Vitesse Lite
+        Love-Day-CountDown
       </a>
     </p>
     <p>
-      <em text-sm op75>Opinionated Vite Starter Template</em>
+      <em text-sm op75>与你一起，共赴每一次期待</em>
     </p>
 
-    <div py-4 />
+    <div class="mt-20px">
+      <div v-for="item, i in events" :key="i" class="mb-10px">
+        <div text-18px>
+          {{ item.event }}
+        </div>
 
-    <input
-      id="input"
-      v-model="name"
-      placeholder="What's your name?"
-      type="text"
-      autocomplete="false"
-      p="x-4 y-2"
-      w="250px"
-      text="center"
-      bg="transparent"
-      border="~ rounded gray-200 dark:gray-700"
-      outline="none active:none"
-      @keydown.enter="go"
-    >
-
-    <div>
-      <button
-        class="m-3 text-sm btn"
-        :disabled="!name"
-        @click="go"
-      >
-        Go
-      </button>
+        <van-count-down millisecond :time="item.date" format="HH:mm:ss:SS" />
+      </div>
     </div>
+
+    <nav text-xl fixed bottom-30px right-30px>
+      <button icon-btn text-40px @click="add">
+        <div i-material-symbols-add-circle />
+      </button>
+    </nav>
   </div>
 </template>

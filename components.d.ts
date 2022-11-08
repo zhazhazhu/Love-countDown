@@ -11,5 +11,15 @@ declare module '@vue/runtime-core' {
     Footer: typeof import('./src/components/Footer.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    VanButton: typeof import('vant/es')['Button']
+    VanCellGroup: typeof import('vant/es')['CellGroup']
+    VanConfigProvider: typeof import('vant/es')['ConfigProvider']
+    VanCountDown: typeof import('vant/es')['CountDown']
+    VanDatePicker: typeof import('vant/es')['DatePicker']
+    VanField: typeof import('vant/es')['Field']
+    VanForm: typeof import('vant/es')['Form']
+    VanNavBar: typeof import('vant/es')['NavBar']
+    VanPopup: typeof import('vant/es')['Popup']
+    VanTimePicker: typeof import('vant/es')['TimePicker']
   }
 }
